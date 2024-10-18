@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reportes', function (Blueprint $table) {
             $table->id('id_reporte');
-            $table->foreignId('id_persona')->constrained('personas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_persona')->constrained('personas', 'id_persona')->onUpdate('cascade')->onDelete('cascade');
             $table->date('fecha_generacion');
             $table->enum('tipo_reporte', ['diario', 'semanal', 'mensual']);
             $table->text('contenido');

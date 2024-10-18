@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tardanzas', function (Blueprint $table) {
             $table->id('id_tardanza');
-            $table->foreignId('id_persona')->constrained('personas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_persona')->constrained('personas', 'id_persona')->onUpdate('cascade')->onDelete('cascade');
             $table->date('fecha_tardanza');
             $table->time('hora_llegada');
             $table->text('justificacion')->nullable();
